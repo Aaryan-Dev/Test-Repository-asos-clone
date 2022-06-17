@@ -1,10 +1,11 @@
 *{
     margin:0px;
     padding:0px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #headPart1{
+    width:100%;
     display: flex;
+    margin: auto;
     justify-content: flex-end;
     align-items: center;
     margin:0px;
@@ -36,6 +37,7 @@
 
 
 #headPart2{
+    width:100%;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 10fr 1fr 1fr 1fr;
     justify-content: center;
@@ -78,15 +80,16 @@
 
 
 #headPart3{
+    width:100%;
     display: grid;
-    grid-template-columns: repeat(14,1fr) 3fr;
-    padding-right: 200px;
+    grid-template-columns: repeat(13,1fr) ;
+    /* padding-right: 200px; */
     justify-content: flex-start;
-    padding:0px 20px;
+    /* padding:0px 20px; */
     background-color: #525050;
     color: white;
-    font-size: 17px;
-    padding-left: 40px;
+    font-size: 14px;
+    /* padding-left: 40px; */
 }
 #headPart3>div{
     padding:20px;
@@ -101,11 +104,11 @@
 }
 
 #container{
+    width:100%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap:15px;
     padding:0px 30px;
-    /* overflow-y: scroll; */
 }
 #container>div:hover{
     cursor: pointer;
