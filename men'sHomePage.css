@@ -1,11 +1,5 @@
  /* Top Section  */
 
- *{
-    font-family: Arial, Helvetica, sans-serif;
-}
-*:hover{
-    cursor: pointer;
-}
 #top{
     text-align: center;
     background-color: rgb(255,97,130);
