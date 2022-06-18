@@ -4047,3 +4047,53 @@ function takeUserToProductFun(arr,index){
     localStorage.setItem("selectedItemJumpToProduct",JSON.stringify(newArr));
     window.location.href="product.html";
 }
+
+
+
+document.querySelector("#asosUserInfoHeading").addEventListener("mouseover",userInfoDispFunction);
+
+function userInfoDispFunction(){
+    document.querySelector("#asosUserInfoDispHeading").innerHTML="";
+    event.preventDefault();
+    let div1=document.createElement("div");
+    let div2=document.createElement("div");
+
+    let p1=document.createElement("p");
+    let p2=document.createElement("p");
+    let p3=document.createElement("p");
+
+    let List1=document.createElement("ul");
+    let sel1=document.createElement("li");
+    let sel2=document.createElement("li");
+    let sel3=document.createElement("li");
+    let sel4=document.createElement("li");
+
+
+    p1.innerText="Hi user Name";
+    p2.innerText="Sign out";
+    p3.innerText="X";
+    p3.setAttribute("id","crossUserInfoHeading");
+
+
+    List1.append(sel1,sel2,sel3,sel4);
+    div2.append(List1);
+    div1.append(p1,p2,p3);
+
+    
+
+    sel1.innerText="My Account";
+    sel2.innerText="My order";
+    sel3.innerText="Returns Information";
+    sel4.innerText="Contact Preferance";
+
+    document.querySelector("#asosUserInfoDispHeading").append(div1,div2);
+}
+// document.querySelector("#crossUserInfoHeading").addEventListener("click",userInfoBlockDispFunction);
+document.querySelector("#asosUserSearchHeading").addEventListener("mouseover",userInfoBlockDispFunction);
+document.querySelector("#asosUserFavHeading").addEventListener("mouseover",userInfoBlockDispFunction);
+document.querySelector("#asosUserInfoDispHeading").addEventListener("mouseleave",userInfoBlockDispFunction);
+document.querySelector("#headPart1").addEventListener("mouseleave",userInfoBlockDispFunction);
+
+function userInfoBlockDispFunction(){
+    document.querySelector("#asosUserInfoDispHeading").innerHTML="";
+}
