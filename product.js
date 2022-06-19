@@ -1,59 +1,23 @@
-// let SelectedItemJumpToProduct = [
-//     {
-//         "Product": "Boots",
-//         "Brand": "ASOS DESIGN",
-//         "ImageUrl": "https://images.asos-media.com/products/asos-design-chelsea-boots-in-black-faux-leather-with-zips/13774536-1-black?$n_320w$&wid=317&fit=constrain",
-//         "Price": "£ 32",
-//         "Style": "Chelsea",
-//         "Color": "Black",
-//         "Size": "UK 7",
-//         "BodyFit": "Body fit",
-//         "Leather": "Leather"
-//     }
+let theArr = JSON.parse(localStorage.getItem("selectedItemJumpToProduct")) || [
+    {
+        Product: "Boots",
+        Brand: "ASOS DESIGN",
+        ImageUrl: "https://images.asos-media.com/products/asos-design-chelsea-boots-in-black-faux-leather-with-zips/13774536-1-black?$n_320w$&wid=317&fit=constrain",
+        Price: "32",
+        Style: "Chelsea",
+        Color: "Black",
+        Size: "UK 7",
+        BodyFit: "Body fit",
+        Leather: "Leather"
+    }
 
-// ]
+];
 
-//    [
-//     {
-//         Product: "Boots",
-//         Brand: "ASOS DESIGN",
-//         ImageUrl: "https://images.asos-media.com/products/asos-design-chelsea-boots-in-black-faux-leather-with-zips/13774536-1-black?$n_320w$&wid=317&fit=constrain",
-//         Price: "£ 32",
-//         Style: "Chelsea",
-//         Color: "Black",
-//         Size: "UK 7",
-//         BodyFit: "Body fit",
-//         Leather: "Leather"
-//     }
+document.querySelector("#second>h2").innerText = theArr[0].Brand + " " + theArr[0].Product + ", " + "Style -" + " " + theArr[0].Style + " " + theArr[0].Leather + " (" + theArr[0].BodyFit + ") ";
 
-// ];
+document.querySelector("#eur").innerText = "£ " + theArr[0].Price
 
-// let theArr = [
-//     {
-//         Product: "Boots",
-//         Brand: "ASOS DESIGN",
-//         ImageUrl: "https://images.asos-media.com/products/asos-design-chelsea-boots-in-black-faux-leather-with-zips/13774536-1-black?$n_320w$&wid=317&fit=constrain",
-//         Price: "£ 32",
-//         Style: "Chelsea",
-//         Color: "Black",
-//         Size: "UK 7",
-//         BodyFit: "Body fit",
-//         Leather: "Leather"
-//     }
-
-// ]
-let theArr = JSON.parse(localStorage.getItem("selectedItemJumpToProduct")) || [];
-
-theArr.forEach(function (elem) {
-
-    document.querySelector("#second>h2").innerText = elem.Brand + " " + elem.Product + ", " + "Style -" + " " + elem.Style + " " + " (" + elem.BodyFit + ") ";
-
-    document.querySelector("#eur").innerText = "£ " + elem.Price
-
-    document.querySelector("#col").innerText = "Color:" + " " + elem.Color
-
-});
-
+document.querySelector("#col").innerText = "Color:" + " " + theArr[0].Color
 
 
 // Data for scroll view od of product 4 images
@@ -203,11 +167,48 @@ function func() {
         };
 
         arr.push(obj);
-
-        // console.log(arr);
         localStorage.setItem("pData", JSON.stringify(arr));
 
-        window.location.href = "https://mail.google.com/mail/u/1/#inbox"
+        // console.log(arr);
+        document.getElementById("ple").innerText = "Added to bag"
+
+        document.getElementById("ple").style.padding = "2%"
+        document.getElementById("ple").style.backgroundColor = "rgb(224, 255, 224)";
+
+        document.querySelector("#bag").innerHTML = "";
+        let nub = document.createElement("button");
+        nub.setAttribute("id", "nu")
+        nub.innerText = "Proceed to Cart"
+        document.querySelector("#bag").append(nub)
+        nub.style.border = "2px solid black"
+        nub.style.padding = "2%"
+        nub.style.borderRadius = "3px"
+        document.querySelector("#nu").addEventListener("click", opened)
+
+        let hea = document.createElement("button");
+        hea.innerText = "🤍"
+        hea.setAttribute("id", "heart")
+
+        hea.addEventListener("click", toggle);
+        document.querySelector("#bag").append(hea)
+        function toggle() {
+            const like = button.textContent;
+            if (like == whiteHeart) {
+                hea.textContent = blackHeart;
+                hea.setAttribute("id", "none")
+            } else {
+                hea.textContent = whiteHeart;
+                hea.setAttribute("id", "heart")
+            }
+        }
+
+
+        function opened() {
+            window.location.href = "primaryCart.html"
+        }
+
+
+
     } else {
         document.getElementById("sizes").style.border = "thin solid #d21345";
         document.getElementById("ple").innerText = "Please select from the available colour and size options"
@@ -216,5 +217,3 @@ function func() {
         document.getElementById("ple").style.backgroundColor = "#fae7ec";
     }
 }
-
-
